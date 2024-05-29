@@ -11,11 +11,12 @@ const renderBoard = () => {
   boardElement.innerHTML = "";
   board.forEach((row, rowindex) => {
     row.forEach((square, squareindex) => {
-      let squareElement = document.createElement("div");
+      const squareElement = document.createElement("div");
       squareElement.classList.add(
         "square",
         (rowindex + squareindex) % 2 === 0 ? "light" : "dark"
       );
+
       squareElement.dataset.row = rowindex;
       squareElement.dataset.col = squareindex;
 
@@ -57,7 +58,7 @@ const renderBoard = () => {
           handleMove(sourceSquare, targetSource);
         }
       });
-      boardElement.append(square);
+      boardElement.appendChild(squareElement);
     });
   });
 
